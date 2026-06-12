@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duru EROĞLU · CV</title>
+<meta name="description" content="Duru EROĞLU - Senior Database Specialist. CV, deneyim, iletişim ve LinkedIn.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0D1117; --panel:#161B22; --panel2:#1C2330; --line:#21262D;
+    --ink:#E6EDF3; --sub:#8B949E; --accent:#2F81F7; --ok:#3FB950;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Instrument Sans",system-ui,sans-serif;
+    line-height:1.5;
+  }
+  .wrap{max-width:42rem;margin:0 auto;padding:0 1.1rem 2.5rem}
+
+  /* session strip */
+  .session{
+    font-family:"IBM Plex Mono",monospace;font-size:.74rem;color:var(--sub);
+    border-bottom:1px solid var(--line);padding:.55rem 1.1rem;
+    display:flex;gap:.5rem;align-items:center;letter-spacing:.02em;
+  }
+  .dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--ok);flex:none;
+    animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  @media (prefers-reduced-motion:reduce){.dot{animation:none}}
+  .session b{color:var(--ok);font-weight:500}
+
+  /* header */
+  header{
+    text-align:center;padding:2.4rem 0 1.6rem;
+    background:radial-gradient(46rem 16rem at 50% -7rem, rgba(47,129,247,.15), transparent 70%);
+  }
+  .name{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;
+    font-size:clamp(2rem,8vw,2.8rem);letter-spacing:-.01em;line-height:1.05}
+  .role{color:var(--accent);font-weight:600;margin-top:.5rem;font-size:1.02rem}
+  .org{color:var(--sub);margin-top:.15rem;font-size:.92rem}
+  .msg{color:var(--sub);max-width:32rem;margin:.95rem auto 0;font-size:.94rem}
+
+  /* action buttons */
+  .actions{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-top:1.4rem}
+  .actions .primary{grid-column:1 / -1}
+  @media(min-width:560px){
+    .actions{grid-template-columns:repeat(3,1fr)}
+    .actions .primary{grid-column:auto}
+  }
+  .btn{
+    display:flex;align-items:center;justify-content:center;gap:.45rem;
+    border:1px solid var(--line);border-radius:.7rem;background:var(--panel);
+    color:var(--ink);padding:.8rem .55rem;font-size:.88rem;font-weight:600;
+    text-decoration:none;cursor:pointer;font-family:inherit;
+    transition:border-color .15s ease,transform .15s ease;
+  }
+  .btn:active{transform:scale(.97)}
+  .btn:hover{border-color:var(--accent)}
+  .btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn svg{width:1rem;height:1rem;flex:none}
+
+  /* section titles */
+  .sec{margin-top:2.1rem}
+  .sec h2{
+    font-family:"IBM Plex Mono",monospace;font-size:.78rem;font-weight:500;
+    color:var(--sub);letter-spacing:.08em;text-transform:uppercase;
+    display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem;
+  }
+  .sec h2::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  /* skill chips */
+  .chips{display:flex;flex-wrap:wrap;gap:.5rem}
+  .chip{
+    font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--ink);
+    background:var(--panel);border:1px solid var(--line);border-radius:2rem;
+    padding:.34rem .75rem;transition:border-color .15s ease;
+  }
+  .chip:hover{border-color:var(--accent)}
+  .chip.hl{border-color:rgba(47,129,247,.55);color:#9ec3fb}
+
+  /* timeline accordion */
+  .tl{border-left:2px solid var(--line);margin-left:.45rem;padding-left:1.15rem;
+    display:flex;flex-direction:column;gap:.7rem}
+  details.job{
+    background:var(--panel);border:1px solid var(--line);border-radius:.8rem;
+    position:relative;overflow:hidden;
+  }
+  details.job::before{
+    content:"";position:absolute;left:-1.65rem;top:1.35rem;width:.7rem;height:.7rem;
+    border-radius:50%;background:var(--bg);border:2px solid var(--sub);
+  }
+  details.job[open]::before{border-color:var(--accent);background:var(--accent)}
+  details.job summary{
+    list-style:none;cursor:pointer;padding:.95rem 1rem;
+    display:flex;align-items:center;gap:.75rem;
+  }
+  details.job summary::-webkit-details-marker{display:none}
+  details.job summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:.8rem}
+  .job-head{flex:1;min-width:0}
+  .job-title{font-weight:600;font-size:.97rem}
+  .job-meta{color:var(--sub);font-size:.8rem;font-family:"IBM Plex Mono",monospace;margin-top:.1rem}
+  .chev{flex:none;color:var(--sub);transition:transform .2s ease;width:1rem;height:1rem}
+  details.job[open] .chev{transform:rotate(90deg);color:var(--accent)}
+  .job-body{padding:0 1rem 1rem;color:var(--sub);font-size:.9rem}
+  .job-body ul{padding-left:1.1rem;display:flex;flex-direction:column;gap:.35rem}
+
+  /* education */
+  .edu{display:flex;flex-direction:column;gap:.6rem}
+  .edu-item{
+    background:var(--panel);border:1px solid var(--line);border-radius:.8rem;
+    padding:.85rem 1rem;
+  }
+  .edu-item b{font-size:.95rem;font-weight:600}
+  .edu-item span{display:block;color:var(--sub);font-size:.84rem;margin-top:.1rem}
+
+  /* contact rows */
+  .contact{display:flex;flex-direction:column;gap:.6rem}
+  .crow{
+    display:flex;align-items:center;gap:.8rem;
+    background:var(--panel);border:1px solid var(--line);border-radius:.8rem;
+    padding:.8rem 1rem;
+  }
+  .crow .lab{font-family:"IBM Plex Mono",monospace;font-size:.74rem;color:var(--sub);
+    width:3.6rem;flex:none;letter-spacing:.05em}
+  .crow .val{flex:1;font-size:.93rem;word-break:break-all}
+  .copy{
+    flex:none;border:1px solid var(--line);background:var(--panel2);color:var(--sub);
+    border-radius:.5rem;padding:.4rem .7rem;font-size:.76rem;font-weight:600;
+    cursor:pointer;font-family:"IBM Plex Mono",monospace;
+    transition:color .15s ease,border-color .15s ease;
+  }
+  .copy:hover{border-color:var(--accent);color:var(--ink)}
+  .copy:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .copy.done{color:var(--ok);border-color:var(--ok)}
+
+  footer{
+    border-top:1px solid var(--line);color:var(--sub);
+    font-family:"IBM Plex Mono",monospace;font-size:.7rem;
+    text-align:center;padding:.95rem 1rem;margin-top:2.4rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="session"><span class="dot" aria-hidden="true"></span>session: duru@cv :: <b>connected</b></div>
+
+<div class="wrap">
+
+<header>
+  <h1 class="name">Duru EROĞLU</h1>
+  <p class="role">Senior Database Specialist</p>
+  <p class="org">İnnova Bilişim Çözümleri · İstanbul</p>
+  <p class="msg">Merhaba! CV'me ve iletişim bilgilerime aşağıdan ulaşabilirsiniz. Görüşmek dileğiyle.</p>
+
+  <nav class="actions" aria-label="Hızlı işlemler">
+    <a class="btn primary" href="cv.pdf" download="Duru_Eroglu_CV.pdf">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      CV'yi İndir
+    </a>
+    <a class="btn" href="cv.pdf" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      Görüntüle
+    </a>
+    <a class="btn" href="https://www.linkedin.com/in/duru-e-700738148" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
+      LinkedIn
+    </a>
+  </nav>
+</header>
+
+<section class="sec" aria-labelledby="t-skills">
+  <h2 id="t-skills">Yetkinlikler</h2>
+  <div class="chips">
+    <span class="chip hl">Oracle</span>
+    <span class="chip hl">PostgreSQL</span>
+    <span class="chip hl">MSSQL</span>
+    <span class="chip">MongoDB</span>
+    <span class="chip">Oracle Data Guard</span>
+    <span class="chip">Linux</span>
+    <span class="chip">Zabbix</span>
+    <span class="chip">Grafana</span>
+    <span class="chip">PL/SQL</span>
+    <span class="chip">Python</span>
+    <span class="chip">IBM Guardium</span>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="t-exp">
+  <h2 id="t-exp">Deneyim</h2>
+  <div class="tl">
+    <details class="job" open>
+      <summary>
+        <div class="job-head">
+          <div class="job-title">Senior Database Specialist · İnnova</div>
+          <div class="job-meta">Kas 2025 - Halen</div>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      </summary>
+      <div class="job-body"><ul>
+        <li>Kritik üretim ortamlarında Oracle veritabanı yönetimi</li>
+        <li>Oracle, PostgreSQL ve MSSQL platformlarında veritabanı altyapı çözümleri</li>
+        <li>Oracle Data Guard ve PostgreSQL replikasyonu ile yüksek erişilebilirlik ve felaket kurtarma</li>
+        <li>Kurulum, konfigürasyon, migrasyon ve üretim geçişleri</li>
+      </ul></div>
+    </details>
+
+    <details class="job">
+      <summary>
+        <div class="job-head">
+          <div class="job-title">Database Administrator · HalkÖde</div>
+          <div class="job-meta">Eki 2024 - Kas 2025</div>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      </summary>
+      <div class="job-body"><ul>
+        <li>FinTech sektöründe PostgreSQL ve MSSQL veritabanı yönetimi</li>
+        <li>Performans iyileştirme, yedekleme/kurtarma, yüksek erişilebilirlik</li>
+        <li>Zabbix ve Grafana izleme platformlarının yönetimi</li>
+        <li>Linux sistem yönetimi: sunucu kurulumu, yama yönetimi, sorun giderme</li>
+      </ul></div>
+    </details>
+
+    <details class="job">
+      <summary>
+        <div class="job-head">
+          <div class="job-title">Database Administrator · Türkiye Sigorta</div>
+          <div class="job-meta">Oca 2022 - Ağu 2024</div>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      </summary>
+      <div class="job-body"><ul>
+        <li>Oracle ve PostgreSQL veritabanı yönetimi, Linux ortam yönetimi</li>
+        <li>Performans iyileştirme: execution plan, indeksleme, istatistikler</li>
+        <li>Veritabanı migrasyonları ve güvenlik önlemleri</li>
+        <li>IBM Guardium ile veritabanı aktivite izleme ve anomali tespiti</li>
+      </ul></div>
+    </details>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="t-edu">
+  <h2 id="t-edu">Eğitim</h2>
+  <div class="edu">
+    <div class="edu-item">
+      <b>Marmara Üniversitesi</b>
+      <span>Siber Güvenlik, Yüksek Lisans · 2025 - Halen</span>
+    </div>
+    <div class="edu-item">
+      <b>Yaşar Üniversitesi</b>
+      <span>Bilgisayar Mühendisliği, Lisans · 2016 - 2021</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="t-contact">
+  <h2 id="t-contact">İletişim</h2>
+  <div class="contact">
+    <div class="crow">
+      <span class="lab">TEL</span>
+      <a class="val" href="tel:+905389820437" style="color:inherit;text-decoration:none">+90 538 982 0437</a>
+      <button class="copy" data-copy="+905389820437">kopyala</button>
+    </div>
+    <div class="crow">
+      <span class="lab">MAIL</span>
+      <a class="val" href="mailto:eroglu.duru@gmail.com" style="color:inherit;text-decoration:none">eroglu.duru@gmail.com</a>
+      <button class="copy" data-copy="eroglu.duru@gmail.com">kopyala</button>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer>SELECT * FROM career WHERE candidate = 'Duru EROĞLU'; -- 1 row returned · v07</footer>
+
+<script>
+// kopyala butonlari
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click', function(){
+    var t = b.getAttribute('data-copy');
+    function done(){ b.textContent='kopyalandı'; b.classList.add('done');
+      setTimeout(function(){ b.textContent='kopyala'; b.classList.remove('done'); }, 1600); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).then(done);
+    } else {
+      var ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta);
+      ta.select(); try{document.execCommand('copy');}catch(e){} document.body.removeChild(ta); done();
+    }
+  });
+});
+</script>
+
+</body>
+</html>
